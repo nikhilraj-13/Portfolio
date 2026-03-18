@@ -1,0 +1,117 @@
+/* @tailwind directives removed */
+
+:root {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+
+  /* Midnight Aurora Theme Palette */
+  --bg-primary: #0a0a0a;
+  --bg-secondary: rgba(30, 27, 75, 0.4);
+  /* Deep Indigo Glass */
+  --text-primary: #ffffff;
+  --text-secondary: #cbd5e1;
+  /* Lavender Grey */
+  --accent-color: #d946ef;
+  --accent-rgb: 217, 70, 239;
+  --accent-hover: #a855f7;
+  --accent-hover-rgb: 168, 85, 247;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --nav-height: 4rem;
+  --max-width: 1200px;
+}
+
+.dark {
+  /* Global Colors - Dark Mode (Same palette used for consistency) */
+  --bg-primary: #0a0a0a;
+  --bg-secondary: rgba(30, 27, 75, 0.6);
+  --text-primary: #f9fafb;
+  --text-secondary: #94a3b8;
+  --accent-color: #d946ef;
+  --accent-hover: #c084fc;
+  --border-color: rgba(255, 255, 255, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: transparent;
+  /* Let the 3D background show */
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Glassmorphism Utilities */
+.glass-panel {
+  background: rgba(17, 25, 40, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Utilities replacing Tailwind */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.section {
+  padding: 5rem 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Ensure text is readable against space background */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+p {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: var(--text-primary);
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  max-width: 48rem;
+  margin: -2rem auto 3rem;
+}

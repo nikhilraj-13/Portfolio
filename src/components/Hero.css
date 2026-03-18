@@ -1,0 +1,276 @@
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: var(--nav-height);
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    position: relative;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column-reverse;
+    /* Stack: Text bottom, Image top (since Image is last in DOM now? Wait, Image is last in DOM. So column-reverse makes Image First, Text Second visual order? No. column-reverse starts from bottom. So Last element (Image) is at Bottom? No. Last element is at Top? */
+    /* Let's think. DOM: Text, Image. column: Text Top, Image Bottom. column-reverse: Text Bottom, Image Top. */
+    /* We want Image Top on Mobile. So column-reverse is correct if DOM is Text, Image. */
+    align-items: center;
+    gap: 3rem;
+    z-index: 1;
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
+    /* Ensure max-width is set */
+    margin: 0 auto;
+    /* Center content */
+}
+
+.hero-text-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center on mobile */
+}
+
+.profile-container {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    z-index: 2;
+    flex-shrink: 0;
+}
+
+@keyframes spin-glow {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.profile-container::before {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, transparent, var(--accent-color), transparent);
+    animation: spin-glow 3s linear infinite;
+    z-index: -1;
+}
+
+.profile-container::after {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    background: conic-gradient(from 180deg, transparent, var(--accent-hover), transparent);
+    animation: spin-glow 3s linear infinite reverse;
+    z-index: -1;
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--bg-secondary);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.profile-overlay {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background-color: rgba(37, 99, 235, 0.2);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.profile-container:hover .profile-overlay {
+    opacity: 1;
+}
+
+@media (min-width: 768px) {
+    .hero-content {
+        flex-direction: row;
+        text-align: left;
+        justify-content: center;
+        align-items: center;
+        padding-left: 8rem;
+        padding-right: 8rem;
+        gap: 3rem;
+    }
+
+    .hero-text-content {
+        align-items: flex-start;
+        /* Left align on desktop */
+        padding-right: 0;
+        flex: 0 1 auto;
+    }
+
+    .profile-container {
+        width: 350px;
+        height: 350px;
+    }
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+    .hero-title {
+        font-size: 4rem;
+    }
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    min-height: 1.5em;
+    /* Prevent layout shift */
+}
+
+.text-violet {
+    color: var(--accent-hover);
+}
+
+.typing-text {
+    color: var(--accent-color);
+}
+
+.cursor {
+    font-weight: 100;
+    color: var(--accent-color);
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.hero-text {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    max-width: none;
+}
+
+.cta-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.btn-primary {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 2rem;
+    background-color: var(--accent-color);
+    color: white;
+    border-radius: 9999px;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.social-btn {
+    padding: 0.75rem;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s, color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-btn.linkedin {
+    color: #0077b5;
+}
+
+.social-btn.leetcode {
+    color: #ffa116;
+}
+
+.social-btn.twitter {
+    color: #1DA1F2;
+}
+
+.social-btn.youtube {
+    color: #ff0000;
+}
+
+.social-btn.sololearn {
+    color: #2bb673;
+}
+
+.social-btn:hover {
+    transform: scale(1.1);
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    color: var(--text-secondary);
+    animation: bounce 2s infinite;
+    cursor: pointer;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@media (max-width: 640px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.5rem;
+    }
+}
