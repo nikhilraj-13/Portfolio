@@ -7,10 +7,12 @@ const About = () => {
     return (
         <section id="about" className="section about-section">
             <div className="container">
-                <h2 className="section-title" data-aos="fade-up">About Me</h2>
-                <p className="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                    Get to know more about me and what I do
-                </p>
+                <div className="section-header">
+                    <h2 className="section-title" data-aos="fade-up">About Me</h2>
+                    <p className="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                        Get to know more about me and what I do
+                    </p>
+                </div>
 
                 <div className="about-content">
                     <div className="about-text" data-aos="fade-right">

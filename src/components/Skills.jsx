@@ -46,9 +46,7 @@ const Skills = () => {
         <section id="skills" className="section skills-section">
             <div className="container">
                 <div className="section-header">
-                    <h2 className="section-title">
-                        Technical Skills
-                    </h2>
+                    <h2 className="section-title">Technical Skills</h2>
                     <p className="section-subtitle">
                         The technologies and tools I use to bring ideas to life.
                     </p>

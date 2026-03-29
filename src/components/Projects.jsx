@@ -40,11 +40,11 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="projects-section">
-      <div className="projects-container">
-        <div className="projects-header">
-          <h2 className="projects-title">FEATURED WORK</h2>
-          <p className="projects-subtitle">
+    <section id="projects" className="section projects-section">
+      <div className="container projects-container">
+        <div className="section-header">
+          <h2 className="section-title">Featured Work</h2>
+          <p className="section-subtitle">
             A showcase of my recent projects demonstrating expertise in full-stack 
             development, modern frameworks, and creative problem-solving.
           </p>

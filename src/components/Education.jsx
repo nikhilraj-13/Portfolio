@@ -34,10 +34,12 @@ const Education = () => {
     return (
         <section id="education" className="section education-section">
             <div className="container">
-                <h2 className="section-title" data-aos="fade-up">Education</h2>
-                <p className="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                    My academic journey
-                </p>
+                <div className="section-header">
+                    <h2 className="section-title" data-aos="fade-up">Education</h2>
+                    <p className="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                        My academic journey
+                    </p>
+                </div>
 
                 <div className="education-grid">
                     {educationData.map((item, index) => (

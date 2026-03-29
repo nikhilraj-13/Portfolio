@@ -21,27 +21,18 @@ const CustomStars = () => {
     useFrame((state) => {
         const time = state.clock.getElapsedTime();
         if (pointsRef.current) {
-            pointsRef.current.rotation.y = time * 0.05;
-            pointsRef.current.rotation.x = time * 0.02;
+            pointsRef.current.rotation.y = time * 0.15;
+            pointsRef.current.rotation.x = time * 0.12;
         }
     });
 
     return (
         <group>
-            <Stars 
-                radius={100} 
-                depth={50} 
-                count={5000} 
-                factor={4} 
-                saturation={0} 
-                fade 
-                speed={1} 
-            />
             <Points ref={pointsRef} positions={positions} stride={3} frustumCulled={false}>
                 <PointMaterial
                     transparent
                     color="#ffffff"
-                    size={0.05}
+                    size={0.15}
                     sizeAttenuation={true}
                     depthWrite={false}
                     blending={THREE.AdditiveBlending}
@@ -63,7 +54,10 @@ const StarBackground = () => {
             pointerEvents: 'none',
             background: 'radial-gradient(circle at center, #0a0a0a 0%, #000000 100%)'
         }}>
-            <Canvas camera={{ position: [0, 0, 5], fov: 60 }}>
+            <Canvas 
+                camera={{ position: [0, 0, 5], fov: 60 }}
+                style={{ height: '100%', width: '100%' }}
+            >
                 <ambientLight intensity={0.5} />
                 <CustomStars />
             </Canvas>

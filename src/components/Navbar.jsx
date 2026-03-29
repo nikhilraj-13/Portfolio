@@ -1,33 +1,44 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, Moon, Sun } from 'lucide-react';
 import { Link } from 'react-scroll';
 import './Navbar.css';
 
-const Navbar = () => {
+const Navbar = ({ theme, toggleTheme }) => {
     const [isOpen, setIsOpen] = useState(false);
-    const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
     const [scrolled, setScrolled] = useState(false);
+    const navRef = useRef(null);
 
+    // Handle scroll events
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 20);
+            // Close mobile menu on scroll
+            if (isOpen) {
+                setIsOpen(false);
+            }
         };
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [isOpen]);
 
+    // Handle click outside events
     useEffect(() => {
-        if (theme === 'dark') {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
-        localStorage.setItem('theme', theme);
-    }, [theme]);
+        const handleClickOutside = (event) => {
+            if (navRef.current && !navRef.current.contains(event.target)) {
+                setIsOpen(false);
+            }
+        };
 
-    const toggleTheme = () => {
-        setTheme(theme === 'light' ? 'dark' : 'light');
-    };
+        if (isOpen) {
+            document.addEventListener('mousedown', handleClickOutside);
+        } else {
+            document.removeEventListener('mousedown', handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isOpen]);
 
     const navLinks = [
         { name: 'Home', to: 'home' },
@@ -39,7 +50,7 @@ const Navbar = () => {
     ];
 
     return (
-        <div className="navbar-container">
+        <div className="navbar-container" ref={navRef}>
             <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
                 <Link
                     to="home"

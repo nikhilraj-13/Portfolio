@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: center;
     padding-top: var(--nav-height);
-    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    background: transparent; /* Changed from solid gradient to transparent */
     position: relative;
 }
 

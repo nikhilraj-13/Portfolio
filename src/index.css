@@ -6,33 +6,30 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-
-  /* Midnight Aurora Theme Palette */
-  --bg-primary: #0a0a0a;
-  --bg-secondary: rgba(30, 27, 75, 0.4);
-  /* Deep Indigo Glass */
-  --text-primary: #ffffff;
-  --text-secondary: #cbd5e1;
-  /* Lavender Grey */
-  --accent-color: #d946ef;
-  --accent-rgb: 217, 70, 239;
-  --accent-hover: #a855f7;
-  --accent-hover-rgb: 168, 85, 247;
-  --border-color: rgba(255, 255, 255, 0.08);
+  
+  /* Custom Light Mode (Day) Palette */
+  --bg-primary: #FFFFFF; /* White */
+  --bg-secondary: #F9FAFB; /* Soft off-white for panels */
+  --text-primary: #1F2937; /* Deep slate gray */
+  --text-secondary: #4B5563; /* Medium gray */
+  --accent-color: #2563EB; /* Vibrant blue */
+  --accent-rgb: 37, 99, 235;
+  --accent-hover: #1D4ED8;
+  --accent-hover-rgb: 29, 78, 216;
+  --border-color: rgba(31, 41, 55, 0.1);
   --nav-height: 4rem;
   --max-width: 1200px;
 }
 
 .dark {
-  /* Global Colors - Dark Mode (Same palette used for consistency) */
-  --bg-primary: #0a0a0a;
-  --bg-secondary: rgba(30, 27, 75, 0.6);
-  --text-primary: #f9fafb;
-  --text-secondary: #94a3b8;
-  --accent-color: #d946ef;
-  --accent-hover: #c084fc;
-  --border-color: rgba(255, 255, 255, 0.1);
+  /* Custom Dark Mode (Night) Palette */
+  --bg-primary: #0F172A; /* Deep navy/slate */
+  --bg-secondary: #1E293B; /* Slightly lighter navy for panels */
+  --text-primary: #F1F5F9; /* Soft off-white */
+  --text-secondary: #CBD5E1; /* Light slate */
+  --accent-color: #60A5FA; /* Bright sky blue */
+  --accent-hover: #93C5FD;
+  --border-color: rgba(241, 245, 249, 0.1);
 }
 
 * {
@@ -46,9 +43,9 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background-color: transparent;
-  /* Let the 3D background show */
   color: var(--text-primary);
   overflow-x: hidden;
+  transition: color 0.3s ease;
 }
 
 button {
@@ -84,6 +81,7 @@ html {
   padding: 5rem 1rem;
   position: relative;
   z-index: 1;
+  background-color: transparent !important; /* Ensure sections are transparent to show background */
 }
 
 /* Ensure text is readable against space background */
@@ -100,18 +98,34 @@ p {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-.section-title {
+.section-header {
   text-align: center;
-  font-size: 2.25rem;
-  font-weight: 700;
-  margin-bottom: 3rem;
-  color: var(--text-primary);
+  margin-bottom: 4rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.section-title {
+  font-size: clamp(2.5rem, 8vw, 3.5rem);
+  margin-bottom: 1rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  background: linear-gradient(to right, var(--text-primary), var(--accent-color), var(--accent-hover));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  text-shadow: none; /* Gradient text doesn't work well with text-shadow */
 }
 
 .section-subtitle {
-  text-align: center;
   font-size: 1.125rem;
   color: var(--text-secondary);
-  max-width: 48rem;
-  margin: -2rem auto 3rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-weight: 500;
 }
