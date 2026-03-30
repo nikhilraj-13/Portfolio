@@ -29,6 +29,7 @@ const Skills = () => {
         ],
         frontend: [
             { name: 'React.js', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+            { name: 'Tailwind CSS', logo: 'https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg' },
             { name: 'CSS', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
             { name: 'HTML5', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
             { name: 'Framer Motion', logo: 'https://pagepro.co/blog/wp-content/uploads/2020/03/framer-motion.png' } // Fallback/Alternative

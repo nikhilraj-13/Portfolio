@@ -88,14 +88,23 @@ const Navbar = ({ theme, toggleTheme }) => {
                     </button>
                 </div>
 
-                {/* Mobile Menu Toggle */}
-                <div className="mobile-toggle-container">
+                {/* Mobile Controls (Theme Toggle + Menu Toggle) */}
+                <div className="mobile-controls">
                     <button
-                        onClick={() => setIsOpen(!isOpen)}
-                        className="mobile-toggle-btn"
+                        onClick={toggleTheme}
+                        className="theme-toggle mobile-theme-toggle"
                     >
-                        {isOpen ? <X size={24} /> : <Menu size={24} />}
+                        {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
                     </button>
+
+                    <div className="mobile-toggle-container">
+                        <button
+                            onClick={() => setIsOpen(!isOpen)}
+                            className="mobile-toggle-btn"
+                        >
+                            {isOpen ? <X size={24} /> : <Menu size={24} />}
+                        </button>
+                    </div>
                 </div>
 
                 {/* Mobile Menu Dropdown */}

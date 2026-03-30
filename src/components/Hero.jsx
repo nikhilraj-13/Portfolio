@@ -37,8 +37,8 @@ const Hero = () => {
     }, [text, isDeleting, fullText]);
 
     const [imageError, setImageError] = useState(0); // 0: primary, 1: secondary (github), 2: final fallback
-    const profileImageUrl = "https://res-console.cloudinary.com/dkiez6yqc/thumbnails/v1/image/upload/v1770272960/TmlraGlsX3NmZndidg==/drilldown";
-    const githubUrl = "https://github.com/nikhil0m.png";
+    const profileImageUrl = "https://res.cloudinary.com/dkiez6yqc/image/upload/v1770272960/TmlraGlsX3NmZndidg=="; // Guessed public URL format
+    const githubUrl = "https://github.com/nikhilraj-13.png";
     const fallbackUrl = "https://ui-avatars.com/api/?name=Nikhil+Raj&background=6366f1&color=fff&size=512";
 
     const getImageUrl = () => {
@@ -76,7 +76,7 @@ const Hero = () => {
                             className="btn-primary"
                         >
                             <FileText size={20} />
-                            Download Resume
+                            View Resume
                         </a>
 
                         <div className="social-links">

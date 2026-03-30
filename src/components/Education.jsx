@@ -25,7 +25,7 @@ const Education = () => {
             id: 3,
             institution: 'DAV Public School',
             degree: 'Secondary Education (Class X)',
-            duration: '2010 - 2020',
+            duration: '2020 - 2023',
             location: 'Darbhanga, Bihar',
             description: 'Completed secondary education with a strong foundation in mathematics and science.',
         },

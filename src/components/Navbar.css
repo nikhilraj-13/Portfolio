@@ -113,15 +113,25 @@
     background-color: rgba(var(--accent-rgb), 0.1);
 }
 
-.mobile-toggle-container {
+.mobile-controls {
     display: flex;
     align-items: center;
+    gap: 0.5rem;
 }
 
 @media (min-width: 768px) {
-    .mobile-toggle-container {
+    .mobile-controls {
         display: none;
     }
+}
+
+.mobile-theme-toggle {
+    display: flex !important;
+}
+
+.mobile-toggle-container {
+    display: flex;
+    align-items: center;
 }
 
 .mobile-toggle-btn {

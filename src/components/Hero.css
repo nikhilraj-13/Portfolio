@@ -3,26 +3,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: var(--nav-height);
-    background: transparent; /* Changed from solid gradient to transparent */
+    padding-top: calc(var(--nav-height) + 2rem); /* Added extra space below navbar */
+    background: transparent;
     position: relative;
 }
 
 .hero-content {
     display: flex;
     flex-direction: column-reverse;
-    /* Stack: Text bottom, Image top (since Image is last in DOM now? Wait, Image is last in DOM. So column-reverse makes Image First, Text Second visual order? No. column-reverse starts from bottom. So Last element (Image) is at Bottom? No. Last element is at Top? */
-    /* Let's think. DOM: Text, Image. column: Text Top, Image Bottom. column-reverse: Text Bottom, Image Top. */
-    /* We want Image Top on Mobile. So column-reverse is correct if DOM is Text, Image. */
     align-items: center;
     gap: 3rem;
     z-index: 1;
     text-align: center;
     width: 100%;
     max-width: 1200px;
-    /* Ensure max-width is set */
-    margin: 0 auto;
-    /* Center content */
+    margin: 1rem auto 0; /* Added small top margin for extra clearance */
 }
 
 .hero-text-content {
