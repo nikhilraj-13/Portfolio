@@ -20,7 +20,7 @@ const About = () => {
                             I'm <span className="text-highlight">NIKHIL RAJ</span>, a passionate developer based in India.
                         </h3>
                         <p>
-                            I am currently pursuing my Bachelor's degree in Computer Science and Engineering.
+                            I am currently pursuing my Bachelor of Engineering (B.E.) degree in Computer Science and Engineering,.
                             My journey in web development started with a curiosity for how things work on the internet,
                             which has now evolved into a passion for building robust and scalable web applications.
                         </p>
