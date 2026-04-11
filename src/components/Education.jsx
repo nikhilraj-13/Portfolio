@@ -21,14 +21,6 @@ const Education = () => {
             location: 'Darbhanga, Bihar',
             description: 'Completed higher secondary education with a focus on Science (Physics, Chemistry, Mathematics).',
         },
-        {
-            id: 3,
-            institution: 'DAV Public School',
-            degree: 'Secondary Education (Class X)',
-            duration: '2020 - 2023',
-            location: 'Darbhanga, Bihar',
-            description: 'Completed secondary education with a strong foundation in mathematics and science.',
-        },
     ];
 
     return (
