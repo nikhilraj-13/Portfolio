@@ -29,7 +29,7 @@ const Hero = () => {
             setTimeout(() => setIsDeleting(true), pauseTime);
             return;
         } else if (isDeleting && text === '') {
-            setIsDeleting(false);
+            setTimeout(() => setIsDeleting(false), 0);
             return;
         }
 

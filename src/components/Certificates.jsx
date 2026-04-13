@@ -1,9 +1,17 @@
 import React, { useState } from 'react';
 import { Award, FileText, ExternalLink, X } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import './Certificates.css';
 
-const Certificates = () => {
+const Certificates = ({
+    limit = 3,
+    showViewAllButton = true,
+    viewAllTo = '/allCertificates',
+    title = 'Certifications',
+    subtitle = 'Credentials and achievements.',
+}) => {
     const [selectedCert, setSelectedCert] = useState(null);
+    const navigate = useNavigate();
 
     const certificates = [
         {
@@ -35,20 +43,22 @@ const Certificates = () => {
         }
     ];
 
+    const visibleCertificates = typeof limit === 'number' ? certificates.slice(0, limit) : certificates;
+
     return (
         <section id="certificates" className="section certificates-section">
             <div className="container">
                 <div className="section-header">
                     <h2 className="section-title">
-                        Certifications
+                        {title}
                     </h2>
                     <p className="section-subtitle">
-                        Credentials and achievements.
+                        {subtitle}
                     </p>
                 </div>
 
                 <div className="certificates-grid">
-                    {certificates.map((cert) => (
+                    {visibleCertificates.map((cert) => (
                         <div key={cert.id} className="certificate-card">
                             <div className="cert-image-container">
                                 <img src={cert.image} alt={cert.title} className="cert-image" />
@@ -63,6 +73,18 @@ const Certificates = () => {
                         </div>
                     ))}
                 </div>
+
+                {showViewAllButton && viewAllTo && (
+                    <div className="section-cta">
+                        <button
+                            type="button"
+                            className="view-all-btn"
+                            onClick={() => navigate(viewAllTo)}
+                        >
+                            View All
+                        </button>
+                    </div>
+                )}
             </div>
 
             {selectedCert && (

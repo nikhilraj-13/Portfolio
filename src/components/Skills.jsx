@@ -1,7 +1,7 @@
 import React from 'react';
 import './Skills.css';
 
-const SkillCategory = ({ title, skills, iconColorClass, iconBgClass, children }) => (
+const SkillCategory = ({ title, skills }) => (
     <div className="skill-section-mb">
         <h3 className="skill-category-title">{title}</h3>
         <div className="skill-tags">

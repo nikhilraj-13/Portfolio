@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, Moon, Sun } from 'lucide-react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Link } from 'react-scroll';
 import './Navbar.css';
 
@@ -7,6 +8,8 @@ const Navbar = ({ theme, toggleTheme }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const navRef = useRef(null);
+    const navigate = useNavigate();
+    const location = useLocation();
 
     // Handle scroll events
     useEffect(() => {
@@ -41,12 +44,12 @@ const Navbar = ({ theme, toggleTheme }) => {
     }, [isOpen]);
 
     const navLinks = [
-        { name: 'Home', to: 'home' },
-        { name: 'About', to: 'about' },
-        { name: 'Skills', to: 'skills' },
-        { name: 'Projects', to: 'projects' },
+        { name: 'Home', to: 'home', path: '/' },
+        { name: 'About', to: 'about', path: '/about' },
+        { name: 'Skills', to: 'skills', path: '/skills' },
+        { name: 'Projects', to: 'projects', path: '/projects' },
 
-        { name: 'Contact', to: 'contact' },
+        { name: 'Contact', to: 'contact', path: '/contact' },
     ];
 
     return (
@@ -56,6 +59,9 @@ const Navbar = ({ theme, toggleTheme }) => {
                     to="home"
                     smooth={true}
                     duration={500}
+                    onClick={() => {
+                        if (location.pathname !== '/') navigate('/');
+                    }}
                     className="logo-link group"
                 >
                     <span className="logo-text">
@@ -72,6 +78,9 @@ const Navbar = ({ theme, toggleTheme }) => {
                             to={link.to}
                             smooth={true}
                             duration={500}
+                            onClick={() => {
+                                if (location.pathname !== link.path) navigate(link.path);
+                            }}
                             className="nav-link"
                         >
                             {link.name}
@@ -116,7 +125,10 @@ const Navbar = ({ theme, toggleTheme }) => {
                                 to={link.to}
                                 smooth={true}
                                 duration={500}
-                                onClick={() => setIsOpen(false)}
+                                onClick={() => {
+                                    setIsOpen(false);
+                                    if (location.pathname !== link.path) navigate(link.path);
+                                }}
                                 className="mobile-nav-link"
                             >
                                 {link.name}

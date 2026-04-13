@@ -1,9 +1,17 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ExternalLink, Github, Youtube, X } from 'lucide-react';
 import './Projects.css';
 
-const Projects = () => {
+const Projects = ({
+  limit = 3,
+  showViewAllButton = true,
+  viewAllTo = '/allProjects',
+  title = 'Featured Work',
+  subtitle = 'A showcase of my recent projects demonstrating expertise in full-stack development, modern frameworks, and creative problem-solving.',
+}) => {
   const [selectedProject, setSelectedProject] = useState(null);
+  const navigate = useNavigate();
 
   const projects = [
     {
@@ -38,19 +46,20 @@ const Projects = () => {
     }
   ];
 
+  const visibleProjects = typeof limit === 'number' ? projects.slice(0, limit) : projects;
+
   return (
     <section id="projects" className="section projects-section">
       <div className="container projects-container">
         <div className="section-header">
-          <h2 className="section-title">Featured Work</h2>
+          <h2 className="section-title">{title}</h2>
           <p className="section-subtitle">
-            A showcase of my recent projects demonstrating expertise in full-stack
-            development, modern frameworks, and creative problem-solving.
+            {subtitle}
           </p>
         </div>
 
         <div className="projects-grid">
-          {projects.map((project) => (
+          {visibleProjects.map((project) => (
             <div key={project.id} className="project-card">
               <div className="project-image-container">
                 <img src={project.image} alt={project.name} className="project-image" />
@@ -69,6 +78,18 @@ const Projects = () => {
             </div>
           ))}
         </div>
+
+        {showViewAllButton && viewAllTo && (
+          <div className="section-cta">
+            <button
+              type="button"
+              className="view-all-btn"
+              onClick={() => navigate(viewAllTo)}
+            >
+              View All
+            </button>
+          </div>
+        )}
       </div>
 
       {selectedProject && (

@@ -1,7 +1,17 @@
 import React, { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Stars, Points, PointMaterial } from '@react-three/drei';
+import { Points, PointMaterial } from '@react-three/drei';
 import * as THREE from 'three';
+
+const mulberry32 = (seed) => {
+    let t = seed;
+    return () => {
+        t += 0x6D2B79F5;
+        let r = Math.imul(t ^ (t >>> 15), 1 | t);
+        r ^= r + Math.imul(r ^ (r >>> 7), 61 | r);
+        return ((r ^ (r >>> 14)) >>> 0) / 4294967296;
+    };
+};
 
 const CustomStars = () => {
     const pointsRef = useRef();
@@ -9,11 +19,12 @@ const CustomStars = () => {
     // Generate some moving stars
     const starsCount = 2000;
     const positions = useMemo(() => {
+        const rand = mulberry32(1337);
         const pos = new Float32Array(starsCount * 3);
         for (let i = 0; i < starsCount; i++) {
-            pos[i * 3] = (Math.random() - 0.5) * 100;
-            pos[i * 3 + 1] = (Math.random() - 0.5) * 100;
-            pos[i * 3 + 2] = (Math.random() - 0.5) * 100;
+            pos[i * 3] = (rand() - 0.5) * 100;
+            pos[i * 3 + 1] = (rand() - 0.5) * 100;
+            pos[i * 3 + 2] = (rand() - 0.5) * 100;
         }
         return pos;
     }, []);
