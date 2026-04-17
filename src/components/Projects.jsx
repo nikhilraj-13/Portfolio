@@ -29,12 +29,12 @@ const Projects = ({
     games: [
       {
         id: 'g1',
-        name: 'Memory Card Game',
-        description: 'Interactive memory card game with animations and score tracking.',
+        name: 'Memory Flip Card Game',
+        description: 'Interactive memory card matching game with move counter, timer, and score tracking. Features smooth card flip animations and responsive design.',
         tech: ['JavaScript', 'HTML5', 'CSS3'],
         image: '/project-memory-game.png',
-        github: '#',
-        demo: '#',
+        github: 'https://github.com/nikhilraj-13/Game/tree/main/Memory-Flip-Card-Game',
+        demo: 'https://flip-card-game-test-your-memory.netlify.app/',
         youtube: null
       },
       {
@@ -92,40 +92,8 @@ const Projects = ({
         youtube: null
       }
     ],
-    backend: [
-      {
-        id: 'b1',
-        name: 'REST API Service',
-        description: 'RESTful API with authentication and CRUD operations.',
-        tech: ['Node.js', 'Express', 'MongoDB'],
-        image: '/project-api.png',
-        github: '#',
-        demo: '#',
-        youtube: null
-      }
-    ],
-    fullstack: [
-      {
-        id: 'fs1',
-        name: 'E-Commerce Dashboard',
-        description: 'Comprehensive dashboard for managing store operations.',
-        tech: ['React', 'Node.js', 'MongoDB', 'Express'],
-        image: '/project-dashboard.png',
-        github: 'https://github.com/nikhilraj-13',
-        demo: null,
-        youtube: null
-      },
-      {
-        id: 'fs2',
-        name: 'Task Management System',
-        description: 'Project management tool with team collaboration.',
-        tech: ['React', 'Node.js', 'Express', 'MongoDB'],
-        image: '/project-tasks.png',
-        github: '#',
-        demo: '#',
-        youtube: null
-      }
-    ],
+    backend: [],
+    fullstack: [],
     hackathons: [
       {
         id: 'h1',
