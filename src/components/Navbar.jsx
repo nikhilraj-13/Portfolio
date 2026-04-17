@@ -45,10 +45,11 @@ const Navbar = ({ theme, toggleTheme }) => {
 
     const navLinks = [
         { name: 'Home', to: 'home', path: '/' },
-        { name: 'About', to: 'about', path: '/about' },
+        { name: 'About', to: 'about', path: '/' },
         { name: 'Skills', to: 'skills', path: '/skills' },
         { name: 'Projects', to: 'projects', path: '/projects' },
-
+        { name: 'Certificates', to: 'certificates', path: '/certificates' },
+        { name: 'Hackathons', to: 'hackathons', path: '/hackathons' },
         { name: 'Contact', to: 'contact', path: '/contact' },
     ];
 

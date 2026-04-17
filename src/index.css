@@ -116,6 +116,7 @@ p {
   letter-spacing: 3px;
   background: linear-gradient(to right, var(--text-primary), var(--accent-color), var(--accent-hover));
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
   text-shadow: none; /* Gradient text doesn't work well with text-shadow */

@@ -6,8 +6,8 @@ import About from './components/About';
 import Education from './components/Education';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
-
 import Certificates from './components/Certificates';
+import Hackathons from './components/Hackathons';
 import Contact from './components/Contact';
 import LoadingScreen from './components/LoadingScreen';
 import StarBackground from './components/StarBackground';
@@ -15,16 +15,14 @@ import LightBackground from './components/LightBackground';
 
 const sectionFromPathname = (pathname) => {
   switch (pathname) {
-    case '/about':
-      return 'about';
-    case '/education':
-      return 'education';
     case '/skills':
       return 'skills';
     case '/projects':
       return 'projects';
     case '/certificates':
       return 'certificates';
+    case '/hackathons':
+      return 'hackathons';
     case '/contact':
       return 'contact';
     default:
@@ -36,16 +34,14 @@ const pathnameFromSectionId = (sectionId) => {
   switch (sectionId) {
     case 'home':
       return '/';
-    case 'about':
-      return '/about';
-    case 'education':
-      return '/education';
     case 'skills':
       return '/skills';
     case 'projects':
       return '/projects';
     case 'certificates':
       return '/certificates';
+    case 'hackathons':
+      return '/hackathons';
     case 'contact':
       return '/contact';
     default:
@@ -55,7 +51,7 @@ const pathnameFromSectionId = (sectionId) => {
 
 const isScrollSpyPathname = (pathname) => pathname === '/' || sectionFromPathname(pathname) !== null;
 
-const sectionIds = ['home', 'about', 'education', 'skills', 'projects', 'certificates', 'contact'];
+const sectionIds = ['home', 'about', 'skills', 'projects', 'education', 'certificates', 'hackathons', 'contact'];
 
 function Home() {
   return (
@@ -66,8 +62,8 @@ function Home() {
         <Education />
         <Skills />
         <Projects limit={3} showViewAllButton={true} viewAllTo="/allProjects" />
-
         <Certificates limit={3} showViewAllButton={true} viewAllTo="/allCertificates" />
+        <Hackathons />
         <Contact />
       </main>
 
@@ -213,11 +209,10 @@ function App() {
           <Navbar theme={theme} toggleTheme={toggleTheme} />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/about" element={<Home />} />
-            <Route path="/education" element={<Home />} />
             <Route path="/skills" element={<Home />} />
             <Route path="/projects" element={<Home />} />
             <Route path="/certificates" element={<Home />} />
+            <Route path="/hackathons" element={<Home />} />
             <Route path="/contact" element={<Home />} />
             <Route path="/allProjects" element={<AllProjectsPage />} />
             <Route path="/allProject" element={<AllProjectsPage />} />

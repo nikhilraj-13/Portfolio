@@ -1,52 +1,151 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ExternalLink, Github, Youtube, X } from 'lucide-react';
+import { ExternalLink, Github, Youtube, X, Gamepad2, Copy, Code, Server, Layers, Trophy, LayoutGrid } from 'lucide-react';
 import './Projects.css';
 
 const Projects = ({
-  limit = 3,
+  limit = null,
   showViewAllButton = true,
   viewAllTo = '/allProjects',
-  title = 'Featured Work',
-  subtitle = 'A showcase of my recent projects demonstrating expertise in full-stack development, modern frameworks, and creative problem-solving.',
+  title = 'Projects',
+  subtitle = 'Explore my diverse portfolio spanning games, clones, frontend, backend, full-stack applications, and hackathons.',
 }) => {
+  const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedProject, setSelectedProject] = useState(null);
   const navigate = useNavigate();
 
-  const projects = [
-    {
-      id: 1,
-      name: "Life of a Developer",
-      tech: ["React", "Tailwind CSS"],
-      description: "“Life of a Developer” is an interactive storytelling web experience that humorously captures the journey of becoming a software developer.",
-      image: "https://images.unsplash.com/photo-1557821552-1710514109b4?auto=format&fit=crop&q=80&w=800",
-      demo: "#",
-      github: "#",
-      youtube: "#"
-    },
-    {
-      id: 2,
-      name: "Portfolio Website",
-      tech: ["React", "CSS"],
-      description: "Personal portfolio to showcase my design and coding projects using creative and modern web features.",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
-      demo: "https://nikhil-raj-13-portfolio.vercel.app/",
-      github: "https://github.com/nikhilraj-13/Portfolio",
-      youtube: ""
-    },
-    {
-      id: 3,
-      name: "Weather App",
-      tech: ["API", "JavaScript"],
-      description: "Responsive app showing real-time weather data using API integration, completely built from scratch.",
-      image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?auto=format&fit=crop&q=80&w=800",
-      demo: "#",
-      github: "https://github.com/nikhilraj-13",
-      youtube: ""
-    }
+  const categories = [
+    { id: 'all', label: 'All', icon: <LayoutGrid size={18} /> },
+    { id: 'games', label: 'Games', icon: <Gamepad2 size={18} /> },
+    { id: 'clones', label: 'Clones', icon: <Copy size={18} /> },
+    { id: 'frontend', label: 'Frontend', icon: <Code size={18} /> },
+    { id: 'backend', label: 'Backend', icon: <Server size={18} /> },
+    { id: 'fullstack', label: 'Full Stack', icon: <Layers size={18} /> },
+    { id: 'hackathons', label: 'Hackathons', icon: <Trophy size={18} /> },
   ];
 
-  const visibleProjects = typeof limit === 'number' ? projects.slice(0, limit) : projects;
+  // TODO: Replace with your actual project data
+  const projectsData = {
+    games: [
+      {
+        id: 'g1',
+        name: 'Memory Card Game',
+        description: 'Interactive memory card game with animations and score tracking.',
+        tech: ['JavaScript', 'HTML5', 'CSS3'],
+        image: '/project-memory-game.png',
+        github: '#',
+        demo: '#',
+        youtube: null
+      },
+      {
+        id: 'g2',
+        name: 'Tic-Tac-Toe AI',
+        description: 'Classic game with AI opponent using minimax algorithm.',
+        tech: ['JavaScript', 'HTML5', 'CSS3'],
+        image: '/project-tictactoe.png',
+        github: '#',
+        demo: '#',
+        youtube: null
+      }
+    ],
+    clones: [
+      {
+        id: 'c1',
+        name: 'Netflix Clone',
+        description: 'Streaming platform UI with movie browsing and details.',
+        tech: ['React', 'CSS3', 'TMDB API'],
+        image: '/project-netflix.png',
+        github: '#',
+        demo: '#',
+        youtube: null
+      },
+      {
+        id: 'c2',
+        name: 'Amazon Clone',
+        description: 'E-commerce interface with product catalog and cart functionality.',
+        tech: ['React', 'Node.js', 'MongoDB'],
+        image: '/project-amazon.png',
+        github: '#',
+        demo: '#',
+        youtube: null
+      }
+    ],
+    frontend: [
+      {
+        id: 'f1',
+        name: 'Portfolio Website',
+        description: 'A modern, responsive portfolio website built with React.',
+        tech: ['React', 'Vite', 'CSS3'],
+        image: '/project-portfolio.png',
+        github: 'https://github.com/nikhilraj-13/Portfolio',
+        demo: 'https://nikhil-raj-13-portfolio.vercel.app/',
+        youtube: null
+      },
+      {
+        id: 'f2',
+        name: 'Weather Dashboard',
+        description: 'Real-time weather application with forecasts.',
+        tech: ['JavaScript', 'API Integration', 'CSS3'],
+        image: '/project-weather.png',
+        github: 'https://github.com/nikhilraj-13',
+        demo: null,
+        youtube: null
+      }
+    ],
+    backend: [
+      {
+        id: 'b1',
+        name: 'REST API Service',
+        description: 'RESTful API with authentication and CRUD operations.',
+        tech: ['Node.js', 'Express', 'MongoDB'],
+        image: '/project-api.png',
+        github: '#',
+        demo: '#',
+        youtube: null
+      }
+    ],
+    fullstack: [
+      {
+        id: 'fs1',
+        name: 'E-Commerce Dashboard',
+        description: 'Comprehensive dashboard for managing store operations.',
+        tech: ['React', 'Node.js', 'MongoDB', 'Express'],
+        image: '/project-dashboard.png',
+        github: 'https://github.com/nikhilraj-13',
+        demo: null,
+        youtube: null
+      },
+      {
+        id: 'fs2',
+        name: 'Task Management System',
+        description: 'Project management tool with team collaboration.',
+        tech: ['React', 'Node.js', 'Express', 'MongoDB'],
+        image: '/project-tasks.png',
+        github: '#',
+        demo: '#',
+        youtube: null
+      }
+    ],
+    hackathons: [
+      {
+        id: 'h1',
+        name: 'Smart City Solution',
+        description: 'Urban planning hackathon project for smart city initiatives.',
+        tech: ['React', 'Node.js', 'IoT'],
+        image: '/project-hackathon.png',
+        github: '#',
+        demo: '#',
+        youtube: null
+      }
+    ]
+  };
+
+  // Get all projects for 'All' category
+  const allProjects = Object.values(projectsData).flat();
+  
+  const visibleProjects = selectedCategory === 'all' 
+    ? allProjects 
+    : projectsData[selectedCategory] || [];
 
   return (
     <section id="projects" className="section projects-section">
@@ -58,21 +157,81 @@ const Projects = ({
           </p>
         </div>
 
+        {/* Category Tabs */}
+        <div className="project-categories">
+          {categories.map(category => (
+            <button
+              key={category.id}
+              className={`category-tab ${selectedCategory === category.id ? 'active' : ''}`}
+              onClick={() => setSelectedCategory(category.id)}
+            >
+              {category.icon}
+              <span>{category.label}</span>
+            </button>
+          ))}
+        </div>
+
         <div className="projects-grid">
-          {visibleProjects.map((project) => (
-            <div key={project.id} className="project-card">
-              <div className="project-image-container">
-                <img src={project.image} alt={project.name} className="project-image" />
-                <div className="project-overlay" onClick={() => setSelectedProject(project)} style={{cursor: 'pointer'}}>
-                  <span className="view-details-btn">View Details</span>
+          {(limit ? visibleProjects.slice(0, limit) : visibleProjects).map((project) => (
+            <div
+              key={project.id}
+              className="project-card"
+            >
+              <div className="project-image-wrapper">
+                <img
+                  src={project.image}
+                  alt={project.name}
+                  className="project-image"
+                  onError={(e) => {
+                    e.target.src = `https://placehold.co/600x400/1a1a1a/ffffff?text=${encodeURIComponent(project.name)}`;
+                  }}
+                />
+                <div className="project-overlay" onClick={() => setSelectedProject(project)}>
+                  <span className="view-project-text">View Details</span>
                 </div>
               </div>
-              <div className="project-content project-content-line">
-                <h3 className="project-name mb-0">{project.name}</h3>
-                <div className="project-techs-container">
-                  {project.tech.map((t, index) => (
-                    <span key={index} className="project-tech-text tech-badge">{t}</span>
+              <div className="project-content">
+                <h3 className="project-name">{project.name}</h3>
+                <p className="project-description">{project.description}</p>
+                <div className="project-techs">
+                  {project.tech.map((t, idx) => (
+                    <span key={idx} className="project-tech">{t}</span>
                   ))}
+                </div>
+                <div className="project-actions">
+                  {project.youtube && (
+                    <a
+                      href={project.youtube}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-btn btn-youtube"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <Youtube size={16} /> YouTube
+                    </a>
+                  )}
+                  {project.demo && (
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-btn btn-demo"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <ExternalLink size={16} /> Demo
+                    </a>
+                  )}
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-btn btn-source"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <Github size={16} /> Source
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
@@ -86,7 +245,7 @@ const Projects = ({
               className="view-all-btn"
               onClick={() => navigate(viewAllTo)}
             >
-              View All
+              View All Projects
             </button>
           </div>
         )}
@@ -101,11 +260,11 @@ const Projects = ({
                 <X size={18} />
               </button>
             </div>
-            
+
             <div className="modal-image-container">
               <img src={selectedProject.image} alt={selectedProject.name} className="modal-image" />
             </div>
-            
+
             <div className="modal-body">
               <div className="modal-info">
                 <h2 className="modal-project-name">{selectedProject.name}</h2>
@@ -116,7 +275,7 @@ const Projects = ({
                   ))}
                 </div>
               </div>
-              
+
               <div className="modal-actions">
                 {selectedProject.demo && (
                   <a href={selectedProject.demo} target="_blank" rel="noopener noreferrer" className="modal-btn btn-demo-cyan">

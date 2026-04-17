@@ -1,49 +1,84 @@
 import React, { useState } from 'react';
-import { Award, FileText, ExternalLink, X } from 'lucide-react';
+import { Award, FileText, ExternalLink, X, LayoutGrid, BookOpen, Trophy } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import './Certificates.css';
 
 const Certificates = ({
-    limit = 3,
+    limit = null,
     showViewAllButton = true,
     viewAllTo = '/allCertificates',
     title = 'Certifications',
-    subtitle = 'Credentials and achievements.',
+    subtitle = 'Credentials and achievements from courses and hackathons.',
 }) => {
+    const [selectedCategory, setSelectedCategory] = useState('all');
     const [selectedCert, setSelectedCert] = useState(null);
     const navigate = useNavigate();
 
-    const certificates = [
-        {
-            id: 1,
-            title: "Full Stack Web Development",
-            issuer: "Udemy",
-            date: "2024",
-            image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800",
-            link: "/certificates/web-dev.pdf", // Place files in public/certificates/
-            description: "Completed comprehensive coursework in Full Stack Web Development covering modern front-end and back-end technologies. Learned to build scalable web applications."
-        },
-        {
-            id: 2,
-            title: "React.js Basic to Advanced",
-            issuer: "Coursera",
-            date: "2023",
-            image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&q=80&w=800",
-            link: "/certificates/react.pdf",
-            description: "An intensive certification program covering the React ecosystem, components, state management, and modern hooks in intricate detail."
-        },
-        {
-            id: 3,
-            title: "Problem Solving (Basic)",
-            issuer: "HackerRank",
-            date: "2023",
-            image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800",
-            link: "/certificates/hackerrank.pdf",
-            description: "Demonstrated strong foundational knowledge in problem solving, algorithms, and logical reasoning through rigorous coding assessments."
-        }
+    const categories = [
+        { id: 'all', label: 'All', icon: <LayoutGrid size={18} /> },
+        { id: 'course', label: 'Course', icon: <BookOpen size={18} /> },
+        { id: 'hackathons', label: 'Hackathons', icon: <Trophy size={18} /> },
     ];
 
-    const visibleCertificates = typeof limit === 'number' ? certificates.slice(0, limit) : certificates;
+    // TODO: Replace with your actual certificate data
+    const certificatesData = {
+        course: [
+            {
+                id: 'c1',
+                title: "Full Stack Web Development",
+                issuer: "Udemy",
+                date: "2024",
+                image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800",
+                link: "/certificates/web-dev.pdf",
+                description: "Completed comprehensive coursework in Full Stack Web Development covering modern front-end and back-end technologies."
+            },
+            {
+                id: 'c2',
+                title: "React.js Basic to Advanced",
+                issuer: "Coursera",
+                date: "2023",
+                image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&q=80&w=800",
+                link: "/certificates/react.pdf",
+                description: "An intensive certification program covering the React ecosystem, components, state management, and modern hooks."
+            },
+            {
+                id: 'c3',
+                title: "Problem Solving (Basic)",
+                issuer: "HackerRank",
+                date: "2023",
+                image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800",
+                link: "/certificates/hackerrank.pdf",
+                description: "Demonstrated strong foundational knowledge in problem solving, algorithms, and logical reasoning."
+            }
+        ],
+        hackathons: [
+            {
+                id: 'h1',
+                title: "Smart City Hackathon - Winner",
+                issuer: "TechFest 2024",
+                date: "2024",
+                image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=800",
+                link: "#",
+                description: "First place winner for developing an innovative smart city traffic management solution."
+            },
+            {
+                id: 'h2',
+                title: "Code-A-Thon Participant",
+                issuer: "CodeFest 2023",
+                date: "2023",
+                image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800",
+                link: "#",
+                description: "Participated in 24-hour coding competition, built a working prototype within the time limit."
+            }
+        ]
+    };
+
+    // Get all certificates for 'All' category
+    const allCertificates = Object.values(certificatesData).flat();
+    
+    const visibleCertificates = selectedCategory === 'all' 
+        ? (limit ? allCertificates.slice(0, limit) : allCertificates)
+        : (limit ? certificatesData[selectedCategory]?.slice(0, limit) : certificatesData[selectedCategory]) || [];
 
     return (
         <section id="certificates" className="section certificates-section">
@@ -55,6 +90,20 @@ const Certificates = ({
                     <p className="section-subtitle">
                         {subtitle}
                     </p>
+                </div>
+
+                {/* Category Tabs */}
+                <div className="certificate-categories">
+                    {categories.map(category => (
+                        <button
+                            key={category.id}
+                            className={`category-tab ${selectedCategory === category.id ? 'active' : ''}`}
+                            onClick={() => setSelectedCategory(category.id)}
+                        >
+                            {category.icon}
+                            <span>{category.label}</span>
+                        </button>
+                    ))}
                 </div>
 
                 <div className="certificates-grid">

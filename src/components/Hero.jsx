@@ -69,15 +69,27 @@ const Hero = () => {
                     </p>
 
                     <div className="cta-group">
-                        <a
-                            href="https://tan-mercy-57.tiiny.site/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="btn-primary"
-                        >
-                            <FileText size={20} />
-                            View Resume
-                        </a>
+                        <div className="cta-buttons">
+                            <button
+                                onClick={() => {
+                                    // TODO: Open resume modal
+                                    console.log('Open resume modal');
+                                }}
+                                className="btn-primary"
+                            >
+                                <FileText size={20} />
+                                View Resume
+                            </button>
+
+                            <Link
+                                to="contact"
+                                smooth={true}
+                                duration={500}
+                                className="btn-secondary"
+                            >
+                                Contact Me
+                            </Link>
+                        </div>
 
                         <div className="social-links">
                             <a
@@ -85,6 +97,7 @@ const Hero = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="social-btn"
+                                aria-label="GitHub Profile"
                             >
                                 <Github size={24} />
                             </a>
@@ -93,6 +106,7 @@ const Hero = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="social-btn linkedin"
+                                aria-label="LinkedIn Profile"
                             >
                                 <Linkedin size={24} />
                             </a>
@@ -101,6 +115,7 @@ const Hero = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="social-btn leetcode"
+                                aria-label="LeetCode Profile"
                             >
                                 <Code size={24} />
                             </a>
@@ -109,6 +124,7 @@ const Hero = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="social-btn twitter"
+                                aria-label="Twitter Profile"
                             >
                                 <Twitter size={24} />
                             </a>
@@ -117,16 +133,9 @@ const Hero = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="social-btn youtube"
+                                aria-label="YouTube Channel"
                             >
                                 <Youtube size={24} />
-                            </a>
-                            <a
-                                href="https://www.sololearn.com/en/profile/35620793"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="social-btn sololearn"
-                            >
-                                <ExternalLink size={24} />
                             </a>
                         </div>
                     </div>
