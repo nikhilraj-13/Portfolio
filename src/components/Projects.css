@@ -134,33 +134,39 @@
 .project-overlay {
     position: absolute;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.6);
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
     transition: opacity 0.3s ease;
-    z-index: 10;
 }
 
-.project-card:hover .project-overlay {
+.project-image-wrapper:hover .project-overlay {
     opacity: 1;
 }
 
-.view-details-btn {
+.view-details-text {
     padding: 0.6rem 1.5rem;
-    background-color: var(--accent-color);
-    color: #ffffff;
+    background: var(--accent-color);
+    color: white;
     border-radius: 9999px;
     font-weight: 600;
     font-size: 0.875rem;
-    transform: translateY(20px);
+    transform: translateY(10px);
     transition: transform 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
-.project-card:hover .view-details-btn {
+.project-image-wrapper:hover .view-details-text {
     transform: translateY(0);
+}
+
+.project-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    cursor: pointer;
 }
 
 .project-content {

@@ -196,6 +196,34 @@
     transform: translateY(-2px);
 }
 
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 2rem;
+    background-color: transparent;
+    color: var(--text-primary);
+    border: 2px solid var(--accent-color);
+    border-radius: 9999px;
+    font-weight: 600;
+    transition: all 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-secondary:hover {
+    background-color: var(--accent-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .social-links {
     display: flex;
     gap: 1rem;

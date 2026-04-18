@@ -75,7 +75,7 @@ const Hero = () => {
                                     // TODO: Open resume modal
                                     console.log('Open resume modal');
                                 }}
-                                className="btn-primary"
+                                className="btn-secondary"
                             >
                                 <FileText size={20} />
                                 View Resume

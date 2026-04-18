@@ -99,24 +99,6 @@ const Hackathons = () => {
                     <p className="section-subtitle">Competing, innovating, and winning at coding competitions.</p>
                 </div>
 
-                <div className="hackathon-stats">
-                    <div className="stat-card">
-                        <Trophy size={32} />
-                        <span className="stat-number">4+</span>
-                        <span className="stat-label">Hackathons</span>
-                    </div>
-                    <div className="stat-card">
-                        <Medal size={32} />
-                        <span className="stat-number">3</span>
-                        <span className="stat-label">Wins</span>
-                    </div>
-                    <div className="stat-card">
-                        <span style={{fontSize: '1.5rem', fontWeight: 'bold', color: 'var(--accent-color)'}}>₹</span>
-                        <span className="stat-number">95K+</span>
-                        <span className="stat-label">Prize Money</span>
-                    </div>
-                </div>
-
                 {/* Category Tabs */}
                 <div className="hackathon-categories">
                     {categories.map(category => (

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ExternalLink, Github, Youtube, X, Gamepad2, Copy, Code, Server, Layers, Trophy, LayoutGrid } from 'lucide-react';
+import { ExternalLink, Github, Youtube, X, Gamepad2, Copy, Code, Server, Layers, LayoutGrid, PenTool } from 'lucide-react';
 import './Projects.css';
 
 const Projects = ({
@@ -8,7 +8,7 @@ const Projects = ({
   showViewAllButton = true,
   viewAllTo = '/allProjects',
   title = 'Projects',
-  subtitle = 'Explore my diverse portfolio spanning games, clones, frontend, backend, full-stack applications, and hackathons.',
+  subtitle = 'Explore my diverse portfolio spanning games, clones, figma designs, frontend, backend, and full-stack applications.',
 }) => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedProject, setSelectedProject] = useState(null);
@@ -18,10 +18,10 @@ const Projects = ({
     { id: 'all', label: 'All', icon: <LayoutGrid size={18} /> },
     { id: 'games', label: 'Games', icon: <Gamepad2 size={18} /> },
     { id: 'clones', label: 'Clones', icon: <Copy size={18} /> },
+    { id: 'figma', label: 'Figma', icon: <PenTool size={18} /> },
     { id: 'frontend', label: 'Frontend', icon: <Code size={18} /> },
     { id: 'backend', label: 'Backend', icon: <Server size={18} /> },
     { id: 'fullstack', label: 'Full Stack', icon: <Layers size={18} /> },
-    { id: 'hackathons', label: 'Hackathons', icon: <Trophy size={18} /> },
   ];
 
   // TODO: Replace with your actual project data
@@ -92,20 +92,20 @@ const Projects = ({
         youtube: null
       }
     ],
-    backend: [],
-    fullstack: [],
-    hackathons: [
+    figma: [
       {
-        id: 'h1',
-        name: 'Smart City Solution',
-        description: 'Urban planning hackathon project for smart city initiatives.',
-        tech: ['React', 'Node.js', 'IoT'],
-        image: '/project-hackathon.png',
+        id: 'f1',
+        name: 'Portfolio Design',
+        description: 'Modern portfolio website design with dark theme and smooth animations.',
+        tech: ['UI/UX', 'Figma', 'Prototyping'],
+        image: '/project-portfolio-figma.png',
         github: '#',
-        demo: '#',
+        demo: 'https://figma.com',
         youtube: null
       }
-    ]
+    ],
+    backend: [],
+    fullstack: [],
   };
 
   // Get all projects for 'All' category
@@ -145,7 +145,7 @@ const Projects = ({
               key={project.id}
               className="project-card"
             >
-              <div className="project-image-wrapper">
+              <div className="project-image-wrapper" onClick={() => setSelectedProject(project)}>
                 <img
                   src={project.image}
                   alt={project.name}
@@ -154,8 +154,8 @@ const Projects = ({
                     e.target.src = `https://placehold.co/600x400/1a1a1a/ffffff?text=${encodeURIComponent(project.name)}`;
                   }}
                 />
-                <div className="project-overlay" onClick={() => setSelectedProject(project)}>
-                  <span className="view-project-text">View Details</span>
+                <div className="project-overlay">
+                  <span className="view-details-text">View Details</span>
                 </div>
               </div>
               <div className="project-content">
