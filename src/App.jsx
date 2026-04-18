@@ -12,6 +12,8 @@ import Contact from './components/Contact';
 import LoadingScreen from './components/LoadingScreen';
 import StarBackground from './components/StarBackground';
 import LightBackground from './components/LightBackground';
+import SEOHead from './components/SEOHead';
+import { ROUTES_SEO } from './seoConfig';
 
 const sectionFromPathname = (pathname) => {
   switch (pathname) {
@@ -109,6 +111,9 @@ function App() {
   const skipNextScrollRef = useRef(false);
   const activeSectionRef = useRef(null);
 
+  // Get current SEO data based on route
+  const currentSEO = ROUTES_SEO[location.pathname] || ROUTES_SEO['/'];
+
   useEffect(() => {
     if (theme === 'dark') {
       document.documentElement.classList.add('dark');
@@ -201,6 +206,7 @@ function App() {
 
   return (
     <div className="app-container">
+      <SEOHead {...currentSEO} />
       {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
 
       {!isLoading && (
