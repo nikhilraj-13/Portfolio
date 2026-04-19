@@ -43,8 +43,18 @@ const Projects = ({
         description: 'Classic game with AI opponent using minimax algorithm.',
         tech: ['JavaScript', 'HTML5', 'CSS3'],
         image: '/project-tictactoe.png',
-        github: '#',
-        demo: '#',
+        github: 'https://github.com/nikhilraj-13/Game/tree/main/tic-tac-toe',
+        demo: 'https://tic-tac-toe-kr.netlify.app/',
+        youtube: null
+      },
+      {
+        id: 'g2',
+        name: 'Click Counter Game',
+        description: 'Interactive click counter game with score tracking and animations.',
+        tech: ['JavaScript', 'HTML5', 'CSS3'],
+        image: '/project-click-counter.png',
+        github: 'https://github.com/nikhilraj-13/Game/tree/main/Click-counter-game',
+        demo: 'https://click-counter-game-kr.netlify.app/',
         youtube: null
       }
     ],
@@ -67,6 +77,16 @@ const Projects = ({
         image: '/project-amazon.png',
         github: '#',
         demo: '#',
+        youtube: null
+      },
+      {
+        id: 'c3',
+        name: 'Zerodha Clone',
+        description: 'Financial trading platform UI with real-time market data and trading features.',
+        tech: ['HTML', 'CSS'],
+        image: '/project-Zerodha.png',
+        github: 'https://github.com/nikhilraj-13/Websites-clone-By-HTML-and-CSS/tree/main/Zerodha-clone',
+        demo: 'https://zerodha-n.netlify.app/',
         youtube: null
       }
     ],
