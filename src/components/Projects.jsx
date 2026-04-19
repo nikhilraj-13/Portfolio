@@ -48,7 +48,7 @@ const Projects = ({
         youtube: null
       },
       {
-        id: 'g2',
+        id: 'g3',
         name: 'Click Counter Game',
         description: 'Interactive click counter game with score tracking and animations.',
         tech: ['JavaScript', 'HTML5', 'CSS3'],
@@ -56,19 +56,9 @@ const Projects = ({
         github: 'https://github.com/nikhilraj-13/Game/tree/main/Click-counter-game',
         demo: 'https://click-counter-game-kr.netlify.app/',
         youtube: null
-      }
+      },
     ],
     clones: [
-      {
-        id: 'c1',
-        name: 'Netflix Clone',
-        description: 'Streaming platform UI with movie browsing and details.',
-        tech: ['React', 'CSS3', 'TMDB API'],
-        image: '/project-netflix.png',
-        github: '#',
-        demo: '#',
-        youtube: null
-      },
       {
         id: 'c2',
         name: 'Amazon Clone',
