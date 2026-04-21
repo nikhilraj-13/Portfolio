@@ -71,13 +71,13 @@ const Projects = ({
       },
       {
         id: 'c3',
-        name: 'Zerodha Clone',
-        description: 'Financial trading platform UI with real-time market data and trading features.',
+        name: 'Urban Company Clone',
+        description: 'A responsive frontend clone of the Urban Company website built using HTML and CSS, replicating modern service-booking UI with clean layouts and structured design.',
         tech: ['HTML', 'CSS'],
-        image: '/project-Zerodha.png',
-        github: 'https://github.com/nikhilraj-13/Websites-clone-By-HTML-and-CSS/tree/main/Zerodha-clone',
-        demo: 'https://zerodha-n.netlify.app/',
-        youtube: null
+        image: '/project-urban.png',
+        github: 'https://github.com/nikhilraj-13/Websites-clone-By-HTML-and-CSS/tree/main/urbanCompany-clone',
+        demo: 'https://urbancompany-clone.netlify.app/',
+        youtube: 'https://www.youtube.com/watch?v=S0e2Reb0CqE'
       }
     ],
     frontend: [
