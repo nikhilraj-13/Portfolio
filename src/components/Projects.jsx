@@ -109,7 +109,6 @@ const Projects = ({
         description: 'Modern portfolio website design with dark theme and smooth animations.',
         tech: ['UI/UX', 'Figma', 'Prototyping'],
         image: '/project-portfolio-figma.png',
-        github: '#',
         demo: 'https://figma.com',
         youtube: null
       }
