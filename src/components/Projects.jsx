@@ -105,11 +105,20 @@ const Projects = ({
     figma: [
       {
         id: 'f1',
-        name: 'Portfolio Design',
-        description: 'Modern portfolio website design with dark theme and smooth animations.',
+        name: 'Rail Connect App Design',
+        description: 'Designed an interactive rail connectivity app prototype in Figma with intuitive navigation, seamless screen flows, and a user-friendly booking experience.',
         tech: ['UI/UX', 'Figma', 'Prototyping'],
         image: '/project-portfolio-figma.png',
-        demo: 'https://figma.com',
+        demo: 'https://www.figma.com/proto/MhDXbgTLMAYdS837XOLS73/Rail-connect',
+        youtube: null
+      },
+      {
+        id: 'f2',
+        name: 'Smart Home App Design',
+        description: 'Designed a smart home control app prototype in Figma with intuitive device management, seamless interactions, and a clean, modern UI for enhanced user experience.',
+        tech: ['UI/UX', 'Figma', 'Prototyping'],
+        image: '/project-smarthome-figma.png',
+        demo: 'https://www.figma.com/proto/SWNQggqSbkMecLHzg8Hxoh/Smart-Home',
         youtube: null
       }
     ],
