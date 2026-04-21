@@ -61,12 +61,12 @@ const Projects = ({
     clones: [
       {
         id: 'c2',
-        name: 'Amazon Clone',
-        description: 'E-commerce interface with product catalog and cart functionality.',
-        tech: ['React', 'Node.js', 'MongoDB'],
+        name: 'Dreamgame Website Clone',
+        description: 'A responsive frontend clone of the Dreamgame website built using HTML and CSS, focusing on pixel-perfect UI design, layout structuring, and modern styling techniques.',
+        tech: ['HTML', 'CSS'],
         image: '/project-amazon.png',
-        github: '#',
-        demo: '#',
+        github: 'https://github.com/nikhilraj-13/Websites-clone-By-HTML-and-CSS/tree/main/Dreamgame-clone',
+        demo: 'https://dreamgame-clone.netlify.app/',
         youtube: null
       },
       {
