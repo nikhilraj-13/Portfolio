@@ -67,7 +67,7 @@ const Projects = ({
         image: '/project-amazon.png',
         github: 'https://github.com/nikhilraj-13/Websites-clone-By-HTML-and-CSS/tree/main/Dreamgame-clone',
         demo: 'https://dreamgame-clone.netlify.app/',
-        youtube: null
+        youtube: 'https://www.youtube.com/watch?v=ZCk7JxRqyN8'
       },
       {
         id: 'c3',
